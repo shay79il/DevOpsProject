@@ -1,1 +1,1 @@
-# PythonProject
+# World of Games
