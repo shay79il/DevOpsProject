@@ -1,0 +1,6 @@
+[{"username": "shay0", "score": 0},
+{"username": "shay1", "score": 1},
+{"username": "shay2", "score": 2},
+{"username": "shay3", "score": 3},
+{"username": "shay4", "score": 4},
+{"username": "shay5", "score": 5}]
