@@ -1,4 +1,3 @@
-
 """
 Score.py
 A package that is in charge of managing the scores file.
@@ -13,65 +12,66 @@ import json
 from Utils import SCORES_FILE_NAME
 from Utils import BAD_RETURN_CODE
 
+
 def get_scores():
-  try:
-    with open(SCORES_FILE_NAME, "r") as json_file:
-      data = json_file.read()
+    try:
+        with open(SCORES_FILE_NAME, "r") as json_file:
+            data = json_file.read()
 
-    db_list = json.loads(data)
-    return db_list
+        db_list = json.loads(data)
+        return db_list
 
-  except FileNotFoundError as e:
-    print(f"File NOT found! {e.args}")
-    return BAD_RETURN_CODE
+    except FileNotFoundError as e:
+        print(f"File NOT found! {e.args}")
+        return BAD_RETURN_CODE
 
 
 def get_users_scores_html():
-  users_scores = get_scores()
-  if users_scores == BAD_RETURN_CODE:
-    users_html = f"\n<h1><div id=\"error\" style=\"color:red\">{BAD_RETURN_CODE}</div></h1>\n"
-  else:
-    users_html = "\n"
-    for i, element in enumerate(users_scores):
-      username, score = tuple(element.values())
-      users_html += f"<h1>The score of {username} is <div id=\"score{i}\">{score}</div></h1>\n"
+    users_scores = get_scores()
+    if users_scores == BAD_RETURN_CODE:
+        users_html = f"\n<h1><div id=\"error\" style=\"color:red\">{BAD_RETURN_CODE}</div></h1>\n"
+    else:
+        users_html = "\n"
+        for i, element in enumerate(users_scores):
+            username, score = tuple(element.values())
+            users_html += f"<h1>The score of {username} is <div id=\"score{i}\">{score}</div></h1>\n"
 
-  return users_html
+    return users_html
 
 
 def add_score(name, difficulty):
-  """
-  The function’s input is a variable called difficulty.
-  The function will try to read the current score in the scores file,
-  if it fails it will create a new one and will use it to save the current score.
-  """
-  try:
-    with open(SCORES_FILE_NAME, "r") as json_file:
-      data = json_file.read()
+    """
+    The function’s input is a variable called difficulty.
+    The function will try to read the current score in the scores file,
+    if it fails it will create a new one and will use it to save the current score.
+    """
+    try:
+        with open(SCORES_FILE_NAME, "r") as json_file:
+            data = json_file.read()
 
-    # reconstructing the data as a dictionarydictionary
-    # Note: db is a list of dictionaries
-    db_list = json.loads(data)
-   
-    # Find user
-    user_found = False
-    for item in db_list:
-      if item["username"] == name:
-        if difficulty != 0:
-          item.update({"score": item["score"] + difficulty * 3 + 5})
-        user_found = True
-        break
+        # reconstructing the data as a dictionary
+        # Note: db is a list of dictionaries
+        db_list = json.loads(data)
 
-    if not user_found:
-      db_list.append({"username": name, "score": 0})
+        # Find user
+        user_found = False
+        for item in db_list:
+            if item["username"] == name:
+                if difficulty != 0:
+                    item.update({"score": item["score"] + difficulty * 3 + 5})
+                user_found = True
+                break
 
-  except FileNotFoundError as e:
-    print(f"File NOT found! {e.args}")
-    print(f"Creating DB file {SCORES_FILE_NAME} and add name")
-    print(name)
+        if not user_found:
+            db_list.append({"username": name, "score": 0})
 
-    db_list = [{"username": name, "score": 0}]
-  
-  finally:
-    with open(SCORES_FILE_NAME, "w") as json_file:
-      json_file.write(json.dumps(db_list))
+    except FileNotFoundError as e:
+        print(f"File NOT found! {e.args}")
+        print(f"Creating DB file {SCORES_FILE_NAME} and add name")
+        print(name)
+
+        db_list = [{"username": name, "score": 0}]
+
+    finally:
+        with open(SCORES_FILE_NAME, "w") as json_file:
+            json_file.write(json.dumps(db_list))
