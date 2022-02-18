@@ -1,6 +1,5 @@
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
-CHROME_DRIVER_PATH = "/home/shay79il/bin/chromedriver"
 
 
 def test_scores_service(url):
@@ -14,7 +13,6 @@ def test_scores_service(url):
     - return a boolean value if it’s true or not.
     """
     my_driver = webdriver.Chrome(ChromeDriverManager().install())
-    # my_driver = webdriver.Chrome(executable_path=CHROME_DRIVER_PATH)
     my_driver.get(url)
     score = int(my_driver.find_element_by_xpath('//*[@id="score0"]').text)
     print(score)
@@ -27,7 +25,7 @@ def main():
     The main function will return -1 as an OS exit
     code if the tests failed and 0 if they passed.
     """
-    url = "http://127.0.0.1:5001/score"
+    url = "http://127.0.0.1:5001/"
     if test_scores_service(url):
         print("exit(0)")
         return exit(0)
@@ -36,4 +34,5 @@ def main():
         return exit(-1)
 
 
-main()
+if __name__ == '__main__':
+    main()

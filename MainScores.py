@@ -9,7 +9,6 @@ from Score import get_users_scores_html
 app = Flask("WorldOfGames")
 
 
-# @app.route('/score', methods=['GET'])
 @app.route('/', methods=['GET'])
 def score_server():
     """
@@ -34,7 +33,11 @@ def score_server():
 
 # @app.route('/')
 # def index():
-#     return render_template("index.html")
+#     html_addition = get_users_scores_html()
+#     return render_template('index.html', SCORE=html_addition)
+
+if __name__ == '__main__':
+    # app.run(host="127.0.0.1", port=5001, debug=True)
+    app.run(host="0.0.0.0", debug=True)
 
 
-app.run(host="127.0.0.1", port=5001, debug=True)
