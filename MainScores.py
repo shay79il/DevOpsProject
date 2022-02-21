@@ -37,7 +37,7 @@ def score_server():
 #     return render_template('index.html', SCORE=html_addition)
 
 if __name__ == '__main__':
-    # app.run(host="127.0.0.1", port=5001, debug=True)
+    # app.run(host="127.0.0.1", port=5000, debug=True)
     app.run(host="0.0.0.0", debug=True)
 
 
