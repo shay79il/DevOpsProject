@@ -3,7 +3,7 @@ services:
   flaskServer:
     build:
       context: .
-      dockerfile: flask.Dockerfile
+      dockerfile: Dockerfile
     image: shay79il/flaskgame
     ports:
       - "8777:5000"
