@@ -9,6 +9,7 @@ pipeline {
         }
         stage ('(2) Build image') {
             steps {
+                sh 'sudo chmod 755 *'
                 sh 'docker-compose build'
             }
         }
