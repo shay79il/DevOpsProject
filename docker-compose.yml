@@ -9,11 +9,3 @@ services:
       - "8777:5000"
     volumes:
       - ./Text_files/Scores.txt:/home/app/Text_files/Scores.txt
-#
-#  test:
-#    build:
-#      context: .
-#      dockerfile: test.Dockerfile
-#    image: shay79il/testgame
-#    ports:
-#      - "8777:5000"
