@@ -29,7 +29,7 @@ pipeline {
         success {
             echo "${env.BUILD_URL} has result success"
             sh 'docker-compose down'
-            sh 'docker-compose push'
+            sh 'docker push shay79il/flaskgame'
         }
         failure {
             echo "${env.BUILD_URL} has result fail, terminate container..."

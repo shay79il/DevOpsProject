@@ -22,7 +22,7 @@ def main():
     The main function will return -1 as an OS exit
     code if the tests failed and 0 if they passed.
     """
-    url = "http://localhost:8777/"
+    url = "http://localhost:5000/"
     if test_scores_service(url):
         print("exit(0)")
         return exit(0)
