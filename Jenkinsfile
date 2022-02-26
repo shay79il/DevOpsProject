@@ -9,17 +9,17 @@ pipeline {
         }
         stage ('(2) Build image') {
             steps {
-                sh "docker-compose build"
+                sh 'docker-compose build'
             }
         }
         stage ('(3) Run image') {
             steps {
-                sh "docker-compose up -d"
+                sh 'docker-compose up -d'
             }
         }
         stage('(4) Run test') {
             steps {
-                sh "python e2e.py"
+                sh 'python e2e.py'
             }
         }
     }
