@@ -9,7 +9,6 @@ pipeline {
         }
         stage ('(2) Build image') {
             steps {
-//                 sh 'docker build -t shay79il/flaskgame .'
                 sh 'docker-compose build'
             }
         }
