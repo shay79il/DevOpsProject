@@ -13,7 +13,7 @@ def test_scores_service(url):
     my_driver.get(url)
     score = int(my_driver.find_element_by_xpath('//*[@id="score0"]').text)
     print(score)
-    return 0 <= score <= 1000
+    return 20 <= score <= 1000
 
 
 def main():
