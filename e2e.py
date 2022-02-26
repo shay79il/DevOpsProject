@@ -3,7 +3,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 
 def test_scores_service(url):
-    """
+    '''
     Its purpose is to test our web service.
     It will
     - get the application URL as an input,
@@ -11,7 +11,7 @@ def test_scores_service(url):
     - select the score element in our web page,
     - check that it is a number between 1 and 1000
     - return a boolean value if it’s true or not.
-    """
+    '''
     my_driver = webdriver.Chrome(ChromeDriverManager().install())
     my_driver.get(url)
     score = int(my_driver.find_element_by_xpath('//*[@id="score0"]').text)
