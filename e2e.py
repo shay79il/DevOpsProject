@@ -28,7 +28,7 @@ def main():
         return exit(0)
     else:
         print("exit(-1)")
-        return exit(-1)
+        # return exit(-1)
 
 
 if __name__ == '__main__':
