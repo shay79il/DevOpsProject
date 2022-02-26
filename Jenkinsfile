@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage ('(1) Git checkout') {
             steps {
-                git 'https://github.com/shay79il/DevOpsProject.git'
+                git branch: 'main', url: 'https://github.com/shay79il/DevOpsProject.git'
             }
         }
         stage ('(2) Build image') {
