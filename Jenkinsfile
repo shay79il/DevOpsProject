@@ -3,7 +3,9 @@ pipeline {
 
     stages {
         stage ('(1) Git checkout') {
-            git 'https://github.com/shay79il/DevOpsProject.git'
+            steps {
+                git 'https://github.com/shay79il/DevOpsProject.git'
+            }
         }
         stage ('(2) Build image') {
             steps {
