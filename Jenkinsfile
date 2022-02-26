@@ -9,13 +9,13 @@ pipeline {
         }
         stage ('(2) Build image') {
             steps {
-                sh 'sudo chmod 755 *'
-                sh 'docker-compose build'
+//                 sh 'docker build -t shay79il/flaskgame'
+                sh 'docker compose build'
             }
         }
         stage ('(3) Run image') {
             steps {
-                sh 'docker-compose up -d'
+                sh 'docker compose up -d'
             }
         }
         stage('(4) Run test') {
