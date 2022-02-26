@@ -27,20 +27,14 @@ pipeline {
     post {
         success {
             echo "${env.BUILD_URL}"
-            echo "======= SUCCESS ======= "
-            echo "======= SUCCESS ======= "
-            echo "======= SUCCESS ======= "
-            echo "======= SUCCESS ======= "
-            echo "Terminate container..."
+            echo "======= SUCCESS =======\n======= SUCCESS =======\n======= SUCCESS =======\n"
+            echo "Terminate container... and upload image to Docker Hub"
             sh 'docker-compose down'
             sh 'docker-compose push'
         }
         failure {
             echo "${env.BUILD_URL}"
-            echo "======= FAIL !!! ======= "
-            echo "======= FAIL !!! ======= "
-            echo "======= FAIL !!! ======= "
-            echo "======= FAIL !!! ======= "
+            echo "======= FAIL !!! =======\n======= FAIL !!! =======\n======= FAIL !!! =======\n"
             echo "Terminate container..."
             sh 'docker-compose down'
         }
